@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account - Cloth Store</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <a class="brand" href="/">Cloth Store</a>
+            <nav class="nav">
+                <a href="/signin">Sign in</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container narrow">
+        <h1>Create your account</h1>
+        <% if (error) { %>
+            <div class="flash error"><%= error %></div>
+        <% } %>
+        <form method="post" action="/signup" class="card form">
+            <label>Email
+                <input type="email" name="email" value="<%= values.email %>" required />
+            </label>
+            <label>Password
+                <input type="password" name="password" minlength="8" required />
+            </label>
+            <label>Confirm password
+                <input type="password" name="confirmPassword" minlength="8" required />
+            </label>
+            <button class="button" type="submit">Create account</button>
+        </form>
+        <p class="muted">Already have an account? <a href="/signin">Sign in</a></p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <small>© <%= new Date().getFullYear() %> Cloth Store</small>
+        </div>
+    </footer>
+</body>
+</html>
+
